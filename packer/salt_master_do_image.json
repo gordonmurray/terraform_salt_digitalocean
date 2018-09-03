@@ -1,0 +1,31 @@
+{
+  "variables": {
+    "do_token": ""
+  },
+  "builders": [
+    {
+      "droplet_name": "salt",
+      "snapshot_name": "salt",
+      "type": "digitalocean",
+      "ssh_username": "root",
+      "api_token": "{{ user `do_token` }}",
+      "image": "ubuntu-18-04-x64",
+      "region": "lon1",
+      "size": "512mb"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/install_salt_master.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/do_monitoring.sh"
+      ]
+    }
+  ]
+}
