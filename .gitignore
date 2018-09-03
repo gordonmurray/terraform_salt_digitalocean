@@ -1,0 +1,8 @@
+# Terraform files
+.terraform
+terraform.tfstate
+terraform.tfvars
+*.tfstate*
+
+# Terraform crash log
+crash.log
