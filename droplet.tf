@@ -17,6 +17,11 @@ module "salt" {
   monitoring         = "true"
   ssh_keys           = ["${module.my_ssh_key.ssh_fingerprint}"]
   private_networking = "true"
+
+  content     = "#interface: 0.0.0.0"
+  destination = "/etc/salt/master"
+
+  remote_exec_command = "salt-key -A"
 }
 
 # create salt minion
