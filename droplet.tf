@@ -30,4 +30,9 @@ module "salt-minion-1" {
   monitoring         = "true"
   ssh_keys           = ["${module.my_ssh_key.ssh_fingerprint}"]
   private_networking = "true"
+
+  content     = "master: ${module.salt.droplet_ipv4_private}"
+  destination = "/etc/salt/minion"
+
+  remote_exec_command = "sudo service salt-minion restart"
 }

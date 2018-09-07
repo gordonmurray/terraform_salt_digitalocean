@@ -7,6 +7,17 @@ resource "digitalocean_droplet" "default" {
   monitoring         = "${var.monitoring}"
   ssh_keys           = ["${var.ssh_keys}"]
   private_networking = "${var.private_networking}"
+
+  provisioner "file" {
+    content     = "${var.content}"
+    destination = "${var.destination}"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "${var.remote_exec_command}",
+    ]
+  }
 }
 
 # Send outputs from this resource back out

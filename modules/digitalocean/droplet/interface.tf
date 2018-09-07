@@ -34,3 +34,18 @@ variable private_networking {
   type    = "string"
   default = "false"
 }
+
+variable content {
+  type    = "string"
+  default = ""
+}
+
+variable destination {
+  type    = "string"
+  default = ""
+}
+
+variable remote_exec_command {
+  type    = "string"
+  default = ""
+}
