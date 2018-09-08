@@ -5,6 +5,8 @@ A project to set up a small Salt cluster on DigitalOcean using Terraform, with 1
 
 The images used to create the Droplets are premade using Packer.
 
+For a guide on using this repository, please view ths blog post https://www.gordonmurray.com/2018/09/08/setting-up-a-salt-cluster-on-digitalocean-using-terraform/
+
 ### Requirements
 
 * Terraform https://www.terraform.io/
