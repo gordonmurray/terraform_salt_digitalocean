@@ -23,7 +23,7 @@ The images used to create the Droplets are premade using Packer.
 
 * terraform apply -var-file="variables.tfvars" -auto-approve
 
-You will not have 1 Salt master and 1  or more Salt minions runing in your DigitalOcean account.
+You will now have 1 Salt master and 1  or more Salt minions runing in your DigitalOcean account.
 
 To change the number of Droplets or to change the size of the droplets, edit droplets.tf.
 
