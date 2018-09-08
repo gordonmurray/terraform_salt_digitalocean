@@ -1,24 +1,32 @@
 Terraform Salt DigitalOcean
 ---------------------------
 
-A project to set up a small Salt cluster on DigitalOcean, using Terraform, with 1 Salt master and 1 or more Salt minions.
+A project to set up a small Salt cluster on DigitalOcean using Terraform, with 1 Salt master and 1 or more Salt minions.
 
 The images used to create the Droplets are premade using Packer.
 
-You will need to add your DigitalOcean API key to the variables.tfvars file for Terraform and to the packer/variables.json file for Packer.
+### Requirements
 
-Terraform Plan - to see the planned changes
+* Terraform https://www.terraform.io/
+* Packer https://www.packer.io/
+* A DigitalOcean account and an API key https://www.digitalocean.com/?refcode=2c62404bb57
 
-> terraform plan -var-file="variables.tfvars"
+### Installation
 
-Terraform Apply - to apply the changes
+* Clone this repository
+* Add your DigitalOcean API key to packer/variables.json file for Packer
+* Add your DigitalOcean API key to variables.tfvars file for Terraform
+* Create 2 Images using Packer:
 
-> terraform apply -var-file="variables.tfvars"
+    * cd packer && packer build -var-file=variables.json salt_master_do_image.json
+    * cd packer && packer build -var-file=variables.json salt_minion_do_image.json
 
-Terraform show - to see the finished instances
+* terraform apply -var-file="variables.tfvars" -auto-approve
 
-> terraform apply -var-file="variables.tfvars"
+You will not have 1 Salt master and 1  or more Salt minions runing in your DigitalOcean account.
 
-Terraform Destroy - to remove all instances at the end
+To change the number of Droplets or to change the size of the droplets, edit droplets.tf.
 
-> terraform destroy -var-file="variables.tfvars"
+If you'd like to remove the Droplets afterwards, use
+
+* terraform destroy -var-file="variables.tfvars" -auto-approve
