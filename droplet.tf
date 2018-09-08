@@ -21,7 +21,7 @@ module "salt" {
   content     = "#interface: 0.0.0.0"
   destination = "/etc/salt/master"
 
-  remote_exec_command = "salt-key -A"
+  remote_exec_command = "salt-key -A -y"
 }
 
 # create salt minion
